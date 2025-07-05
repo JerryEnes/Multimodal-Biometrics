@@ -1,0 +1,97 @@
+ ViT-WEF: Lightweight Vision Transformers with Adaptive Weighted Ensemble Fusion for Secure Multimodal Biometrics
+
+This repository contains the official implementation of the ViT-WEF model proposed in the manuscript:
+
+**"Enhancing Multimodal Biometrics with Lightweight Vision Transformers and Adaptive Ensemble Fusion"**
+
+ViT-WEF integrates lightweight dual-stream ViT-Tiny encoders for iris and finger-vein recognition, using both **feature-level and score-level fusion**, followed by a **learnable weighted ensemble layer** to improve recognition accuracy in resource-constrained environments.
+
+---
+
+## 🔬 Overview
+
+- **Modality 1:** Iris (CASIA-Iris-Thousand)
+- **Modality 2:** Finger-Vein (FV-USM)
+- **Fusion Strategy:** Dual-level (Feature + Score) with adaptive weighting
+- **Backbone:** ViT-Tiny (12 transformer layers per modality)
+- **Total Parameters:** ~11.4M
+- **Accuracy Achieved:** 99.49% (on 492-class dataset)
+
+---
+
+## 📂 Project Structure
+
+- `models/`: Model definitions including ViT-Tiny, fusion modules
+- `preprocessing/`: Scripts for CLAHE, segmentation, normalization
+- `dataset/`: Dataset pairing logic and PyTorch dataloader
+- `training/`: Training and evaluation scripts
+- `results/`: Plots and metrics from experiments
+
+---
+
+## 🧪 Setup Instructions
+
+### 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+2. Download datasets
+CASIA-Iris-Thousand
+
+FV-USM
+
+Ensure you have proper access to both datasets. See dataset/README_DATA.md for folder structure and pairing instructions.
+
+3. Preprocess the datasets
+bash
+Copy
+Edit
+python preprocessing/iris_preprocess.py
+python preprocessing/fingervein_preprocess.py
+python dataset/prepare_dataset.py
+This creates paired iris-vein folders with normalized 224×224 RGB images.
+
+4. Train the model
+bash
+Copy
+Edit
+python training/train.py --config training/config.yaml
+5. Evaluate
+bash
+Copy
+Edit
+python training/evaluate.py
+📈 Results
+Fusion Strategy	Accuracy	Precision	Recall	F1-Score
+Score-Level Fusion	89.51%	88.50%	88.20%	87.08%
+Feature-Level Fusion	98.82%	99.14%	99.03%	98.89%
+Final Ensemble	99.49%	99.55%	99.46%	99.44%
+
+📜 Citation
+If you use this repository, please cite the following:
+
+bash
+Copy
+Edit
+@software{jeremiah2025vitwef,
+  author       = {Ocheni, Jeremiah and Immanuel Johnraja and Getzi Jeba Leelipushpam},
+  title        = {ViT-WEF: Lightweight Vision Transformers with Adaptive Weighted Ensemble Fusion},
+  year         = 2025,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.1234567},
+  url          = {https://doi.org/10.5281/zenodo.1234567}
+}
+📄 License
+This project is released under the MIT License. See LICENSE for more details.
+
+📧 Contact
+For questions, contact:
+
+Mr. Jeremiah Ocheni: ochenijeremiah@karunya.edu.in
+
+Karunya Institute of Technology and Sciences
+
+🔗 Related Publication
+This code accompanies the manuscript submitted to The Visual Computer titled:
+"Enhancing Multimodal Biometrics with Lightweight Vision Transformers and Adaptive Ensemble Fusion"
+
