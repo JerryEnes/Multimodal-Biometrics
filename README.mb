@@ -40,8 +40,6 @@ CASIA-Iris-Thousand
 
 FV-USM
 
-Ensure you have proper access to both datasets. See dataset/README_DATA.md for folder structure and pairing instructions.
-
 3. Preprocess the datasets
 bash
 Copy
@@ -77,9 +75,9 @@ Edit
   author       = {Ocheni, Jeremiah and Immanuel Johnraja and Getzi Jeba Leelipushpam},
   title        = {ViT-WEF: Lightweight Vision Transformers with Adaptive Weighted Ensemble Fusion},
   year         = 2025,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.1234567},
-  url          = {https://doi.org/10.5281/zenodo.1234567}
+  publisher    = 
+  doi          = 
+  url          = 
 }
 📄 License
 This project is released under the MIT License. See LICENSE for more details.
